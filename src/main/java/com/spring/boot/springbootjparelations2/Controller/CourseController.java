@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 public class CourseController {
     private final CourseService courseService;
 
-    @PostMapping("/add")
-    public ResponseEntity<?> addCourse(@Valid @RequestBody Course course){
-        courseService.addCourse(course);
+    @PostMapping("/add/{teacherId}")
+    public ResponseEntity<?> addCourse(@Valid @RequestBody Course course, @PathVariable Integer teacherId){
+        courseService.addCourse(course, teacherId);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Course added successfully"));
     }
 

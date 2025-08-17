@@ -1,5 +1,6 @@
 package com.spring.boot.springbootjparelations2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -22,5 +23,6 @@ public class Course {
     private String name;
 
     @ManyToOne
+    @JsonIgnore
     private Teacher teacher;
 }

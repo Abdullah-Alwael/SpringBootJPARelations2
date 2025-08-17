@@ -64,8 +64,7 @@ public class AddressService {
             throw new ApiException("Error, teacher not found");
         }
 
-        teacher.setAddress(null);
-
+        teacher.setAddress(null); // wait how did this work? the update was not saved to the database
         addressRepository.delete(oldAddress);
     }
 }
