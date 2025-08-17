@@ -58,4 +58,20 @@ public class CourseService {
 //        oh, there is no need
         courseRepository.delete(oldCourse);
     }
+
+    public String getCourseTeacher(Integer courseId){
+        Course course = getCourse(courseId);
+
+        if (course == null){
+            throw new ApiException("Error, course does not exist");
+        }
+
+        Teacher teacher = course.getTeacher();
+
+        if (teacher == null){
+            throw new ApiException("Error, teacher does not exist");
+        }
+
+        return teacher.getName();
+    }
 }

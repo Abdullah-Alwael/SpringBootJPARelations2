@@ -40,4 +40,9 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Course deleted successfully"));
 
     }
+
+    @GetMapping("{courseId}/taught-by/")
+    public ResponseEntity<?> getCourseTeacher(@PathVariable Integer courseId){
+        return ResponseEntity.status(HttpStatus.OK).body(courseService.getCourseTeacher(courseId));
+    }
 }
