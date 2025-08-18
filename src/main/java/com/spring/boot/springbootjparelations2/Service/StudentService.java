@@ -51,5 +51,14 @@ public class StudentService {
 
     public void updateStudentMajor(Integer studentId, String major){
         // TODO update the major
+        Student student = getStudent(studentId);
+
+        if (student == null){
+            throw new ApiException("Error, student not found");
+        }
+
+        student.setCourses(null); // will the database be erased?
+        student.setMajor(major);
+
     }
 }

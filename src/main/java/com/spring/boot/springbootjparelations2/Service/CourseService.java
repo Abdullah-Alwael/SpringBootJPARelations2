@@ -2,11 +2,13 @@ package com.spring.boot.springbootjparelations2.Service;
 
 import com.spring.boot.springbootjparelations2.Api.ApiException;
 import com.spring.boot.springbootjparelations2.Model.Course;
+import com.spring.boot.springbootjparelations2.Model.Student;
 import com.spring.boot.springbootjparelations2.Model.Teacher;
 import com.spring.boot.springbootjparelations2.Repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -73,5 +75,15 @@ public class CourseService {
         }
 
         return teacher.getName();
+    }
+
+    public List<Student> getCourseStudents(Integer courseId){
+        Course course = getCourse(courseId);
+
+        if (course == null){
+            throw new ApiException("Error, course does not exist");
+        }
+
+        return new ArrayList<>(course.getStudents());
     }
 }

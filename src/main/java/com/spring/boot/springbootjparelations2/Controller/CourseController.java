@@ -45,4 +45,10 @@ public class CourseController {
     public ResponseEntity<?> getCourseTeacher(@PathVariable Integer courseId){
         return ResponseEntity.status(HttpStatus.OK).body(courseService.getCourseTeacher(courseId));
     }
+
+    @GetMapping("{courseId}/students/")
+    public ResponseEntity<?> getCourseStudents(@PathVariable Integer courseId){
+        return ResponseEntity.status(HttpStatus.OK).body(courseService.getCourseStudents(courseId));
+
+    }
 }
