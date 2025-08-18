@@ -26,7 +26,7 @@ public class TeacherService {
     }
 
     public void updateTeacher(Integer teacherId, Teacher teacher){
-        Teacher oldTeacher = teacherRepository.findTeacherById(teacherId);
+        Teacher oldTeacher = getTeacher(teacherId);
 
         if (oldTeacher == null){
             throw new ApiException("Error, teacher not found");
@@ -41,7 +41,7 @@ public class TeacherService {
     }
 
     public void deleteTeacher(Integer teacherId){
-        Teacher oldTeacher = teacherRepository.findTeacherById(teacherId);
+        Teacher oldTeacher = getTeacher(teacherId);
 
         if (oldTeacher == null){
             throw new ApiException("Error, teacher not found");

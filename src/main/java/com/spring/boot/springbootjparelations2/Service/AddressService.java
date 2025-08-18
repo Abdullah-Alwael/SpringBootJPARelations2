@@ -38,7 +38,7 @@ public class AddressService {
     }
 
     public void updateAddress(AddressDTO address){
-        Address oldAddress = addressRepository.findAddressById(address.getTeacherId());
+        Address oldAddress = getAddress(address.getTeacherId());
 
         if (oldAddress == null){
             throw new ApiException("Error, address not found");
@@ -52,7 +52,7 @@ public class AddressService {
     }
 
     public void deleteAddress(Integer addressId){
-        Address oldAddress = addressRepository.findAddressById(addressId);
+        Address oldAddress = getAddress(addressId);
 
         if (oldAddress == null){
             throw new ApiException("Error, address not found");

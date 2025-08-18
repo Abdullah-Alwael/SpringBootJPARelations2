@@ -27,7 +27,7 @@ public class StudentService {
     }
 
     public void updateStudent(Integer studentId, Student student){
-        Student oldStudent = studentRepository.findStudentById(studentId);
+        Student oldStudent = getStudent(studentId);
 
         if (oldStudent == null){
             throw new ApiException("Error, student not found");
@@ -35,13 +35,12 @@ public class StudentService {
 
         oldStudent.setName(student.getName());
         oldStudent.setAge(student.getAge());
-        oldStudent.setMajor(student.getMajor());
 
         studentRepository.save(oldStudent);
     }
 
     public void deleteStudent(Integer studentId){
-        Student oldStudent = studentRepository.findStudentById(studentId);
+        Student oldStudent = getStudent(studentId);
 
         if (oldStudent == null){
             throw new ApiException("Error, student not found");
