@@ -41,6 +41,7 @@ public class StudentController {
 
     }
 
+    @PutMapping("update/{studentId}/major/{major}")
     public ResponseEntity<?> updateStudentMajor(@PathVariable Integer studentId, @PathVariable String major){
         studentService.updateStudentMajor(studentId, major);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Student major updated successfully"));

@@ -50,7 +50,6 @@ public class StudentService {
     }
 
     public void updateStudentMajor(Integer studentId, String major){
-        // TODO update the major
         Student student = getStudent(studentId);
 
         if (student == null){
