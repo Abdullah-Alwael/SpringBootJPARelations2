@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,4 +27,8 @@ public class Course {
     @ManyToOne
     @JsonIgnore
     private Teacher teacher;
+
+    @ManyToMany
+    @JsonIgnore
+    private Set<Student> students;
 }
